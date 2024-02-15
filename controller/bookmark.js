@@ -16,9 +16,9 @@ router.get('/', async (req, res) => {
 
 
 // CREATE ROUTE
-router.post('/create', async (req, res) => {
+router.post('/', async (req, res) => {
     try{
-        // res.json(await Bookmark.Create({req.body}))
+        // res.json(await Bookmark.Create(req.body))
         res.send("Create Page")
     }catch(error){
         console.log('Read the error message', error)
@@ -29,7 +29,7 @@ router.post('/create', async (req, res) => {
 // DELETE ROUTE
 router.delete('/:id', async (req, res) => {
     try{
-        // res.json(await Bookmark.findByIdAndDelete({req.params.id}))
+        // res.json(await Bookmark.findByIdAndDelete(req.params.id))
         res.send("Delete Page")
     }catch(error){
         console.log('Read the error message', error)
@@ -40,7 +40,7 @@ router.delete('/:id', async (req, res) => {
 // UPDATE ROUTE
 router.put('/:id', async (req, res) => {
     try{
-        // res.json(await Bookmark.findByIdAndUpdate({req.params.id, req.body}))
+        // res.json(await Bookmark.findByIdAndUpdate(req.params.id, req.body))
         res.send("Update Page")
     }catch(error){
         console.log('Read the error message', error)
