@@ -7,8 +7,8 @@ const router = express.Router();
 // INDEX ROUTE
 router.get('/', async (req, res) => {
     try{
-        // res.json(await Bookmark.find({}))
-        res.send("Index Page")
+        res.json(await Bookmark.find({}))
+        // res.send("Index Page")
     }catch(error){
         console.log('Read the error message', error)
     }
@@ -18,8 +18,8 @@ router.get('/', async (req, res) => {
 // CREATE ROUTE
 router.post('/', async (req, res) => {
     try{
-        // res.json(await Bookmark.Create(req.body))
-        res.send("Create Page")
+        res.json(await Bookmark.create(req.body))
+        // res.send("Create Page")
     }catch(error){
         console.log('Read the error message', error)
     }
@@ -29,9 +29,18 @@ router.post('/', async (req, res) => {
 // DELETE ROUTE
 router.delete('/:id', async (req, res) => {
     try{
-        // res.json(await Bookmark.findByIdAndDelete(req.params.id))
-        res.send("Delete Page")
+        res.json(await Bookmark.findByIdAndDelete(req.params.id))
+        // res.send("Delete Page")
     }catch(error){
+        console.log('Read the error message', error)
+    }
+})
+
+//FIND THE ID AND SEARCH IN THUNDERCLIENT/POSTMAN
+router.get('/:id', async (req, res) => {
+    try {
+        res.json(await Bookmark.findById(req.params.id))
+    } catch (error) {
         console.log('Read the error message', error)
     }
 })
@@ -40,8 +49,8 @@ router.delete('/:id', async (req, res) => {
 // UPDATE ROUTE
 router.put('/:id', async (req, res) => {
     try{
-        // res.json(await Bookmark.findByIdAndUpdate(req.params.id, req.body))
-        res.send("Update Page")
+        res.json(await Bookmark.findByIdAndUpdate(req.params.id, req.body))
+        // res.send("Update Page")
     }catch(error){
         console.log('Read the error message', error)
     }
